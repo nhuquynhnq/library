@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Book &mdash; Free Website </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Free-Template.co" />
+    <link rel="shortcut icon" th:href="@{~/images/ftco-32x32.png}">
+    
+    <link rel="stylesheet" th:href="@{~/css/custom-bs.css}" />
+    <link rel="stylesheet" th:href="@{~/css/jquery.fancybox.min.css}">
+    <link rel="stylesheet" th:href="@{~/css/bootstrap-select.min.css}">
+    <link rel="stylesheet" th:href="@{~/fonts/icomoon/style.css}">
+    <link rel="stylesheet" th:href="@{~/fonts/line-icons/style.css}">
+    <link rel="stylesheet" th:href="@{~/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{~/css/animate.min.css}">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" th:href="@{~/css/style.css}"> 
+    <li>
+ <div class="cart">
+       <a href="#" class="cart-in"> </a>
+       <span> <c:out value="${sessionScope.myCartNum}"/></span>
+    </div>
+        <ul class="sub-icon1 list">
+            <h3>Recently added items (<c:out value="${sessionScope.myCartNum}"/>)</h3>
+                <div class="shopping_cart">
+                    <c:forEach var="map" items="${sessionScope.myCartItems}">
+                        <div class="cart_box">
+                            <div class="message">
+                                <div class="alert-close"> </div> 
+                                <div class="list_img"><img src="${pageContext.request.contextPath}/resources/pages/images/14.jpg" class="img-responsive" alt=""></div>
+                                <div class="list_desc"><h4><a href="#"><c:out value="${map.value.product.productName}"/></a></h4><c:out value="${map.value.quantity}"/> 
+                                    $<c:out value="${map.value.product.productPrice}"/> = <span class="actual"> $<c:out value="${map.value.quantity * map.value.product.productPrice}"/></span></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+                <div class="total">
+                    <div class="total_left">Total: </div>
+                    <div class="total_right">$<c:out value="${sessionScope.myCartTotal}"/></div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="login_buttons">
+                    <div class="check_button"><a href="checkout.html">Check out</a></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+    </ul>
+</li>  
+</head>
+
+<body>
+jkhjh
+</body>
+</html>

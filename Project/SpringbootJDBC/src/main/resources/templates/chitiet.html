@@ -1,0 +1,87 @@
+<div th:replace="partials/headerus"></div>
+
+<section class="site-section" id="next-section">
+	<div class="container">
+     
+
+   
+  
+   
+		<div class="row mb-5 justify-content-center">
+			<div class="col-md-7 text-center">
+				
+				<th:block th:if="${authorization=='USER'}">
+					<th:block th:replace="fragments/navbar-user"></th:block>
+				</th:block>
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Hình</th>
+							<th>Tên Sách</th>
+							<th>Thể Loại</th>
+							<th>Số lượng còn</th>
+							<th></th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="cart_items" th:each="ct: ${sachs}">
+							<td><a class="product-image" href="javascript:;" title="Product 2"><img width="200px" height="200px" th:src="@{|~/${ct.image}|}" /></a></td>
+							<td th:text="${ct.bookname}"></td>
+							<td th:text="${ct.type}"></td>
+							<td id="numberhas" th:text="${ct.number - ct.numberborrow}"></td>
+						    <td><button id="mybtn" title="Add to Cart" type=
+        "button"  th:attr="'data-columns'=${ct.id},'data­name'=${ct.bookname},'data-infor'=@{|~/${ct.image}|}" >Mượn sách</button></td>
+						</tr>
+					<!--  th:href="@{/add/{productId}(productId=${ct.id})-->
+						
+					</tbody>
+				</table>
+				
+			</div>
+			 <div class="details col-md-6"> 
+    
+     <div class="rating"> 
+      <div class="stars"> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> 
+      </div> <span class="review-no">123 đánh giá</span> 
+     </div> 
+     <p class="product-description">gdfgdfgfd</p>
+     
+     
+     <!--  <div id="myModal" class="modal">
+      <tr th:each="element : ${session.myCartItems}">
+       <table class="table table-active">
+            <tr th:each="anews : ${element.value}">
+               <td><img width="100" height="100" th:src="@{/{url}(url=${anews.product.image})}"/></td> 
+                <td th:text="${anews.product.id}">Some name</td>
+                <td th:text="${anews.product.bookname}">Some name</td>
+                <td th:text="${anews.product.type}">Some name</td>
+                <td th:text="${anews.product.id_author}">Some name</td>
+                <td th:text="${anews.product.id_publisher}">Some name</td>
+                <td th:text="${anews.product.number}"></td>
+                <td class="list_close"><a th:href="@{/remove?id={id}(id=${anews.product.id})}">Remove item</a></td>
+            </tr>
+            </table>
+            </tr>
+            
+       
+     </div>-->
+     
+	</div>
+		</div>
+		<script>
+		var modal = document.getElementById('myModal');
+		var btn = document.getElementById("myBtn");
+		//var span = document.getElementsByClassName("close")[0];
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+		//span.onclick = function() {
+			//modal.style.display = "none";
+		//}
+		</script>
+		
+	
+</section>
+
+<div th:replace="partials/footer"></div>

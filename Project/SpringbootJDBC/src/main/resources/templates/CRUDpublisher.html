@@ -1,0 +1,26 @@
+<div th:replace="partials/headermn"></div>
+<div class="col-3"></div>  
+<div class="container col-6">  
+    <h1 align="center">Quản Lý Nhà Xuất Bản</h1>  
+    <table class="table table-active">  
+        <tr>  
+              
+            <th>Id</th>  
+            <th>Tên Nhà Xuất Bản</th>  
+            
+              
+        </tr>  
+        <tr th:each="us : ${publishers}">  
+            
+            <td th:text="${us.id}"></td>  
+            <td th:text="${us.publishername}"></td>  
+            
+            <td>  
+                <a th:href="@{/editpub?id={id}(id=${us.id})}" class="btn btn-primary">Edit</a>  
+                <a th:href="@{/deletepub?id={id}(id=${us.id})}" class="btn btn-danger">Delete</a>  
+            </td>  
+        </tr>  
+    </table>  
+    <a href="/addpub" class="btn btn-success">Add Publisher</a>  
+</div>  
+<div th:replace="partials/footer"></div>

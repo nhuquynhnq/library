@@ -1,0 +1,46 @@
+<div th:replace="partials/headerus"></div>
+<section class="site-section" id="next-section">
+	<div class="container">
+
+		<div class="row mb-5 justify-content-center">
+			<div class="col-md-12 text-center">
+				<h2 class="section-title mb-2">Má»¥c sÃ¡ch</h2>
+
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>HÃ¬nh</th>
+							<th>TÃªn SÃ¡ch</th>
+						</tr>
+					</thead>
+					<tbody>
+					<th:block th:if="${#listbook.isEmpty()}">
+							<h3>Không tìm thấy</h3>
+						</th:block>
+                        <tr class="cart_items" th:each="ct: ${listbook}">
+							<td><a class="product-image" href="javascript:;" title="Product 2"><img width="200px" height="200px" th:src="@{|~/${ct.image}|}" /></a></td>
+							<td align="center"><a
+									th:href="@{/chitiet?id={id}(id=${ct.id})}"
+									th:text="${ct.bookname}">..</a></td>
+							<td th:text="${ct.type}"></td>
+							<td id="numberhas" th:text="${ct.number - ct.numberborrow}"></td>
+						  
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		
+
+	</div>
+	<div class="row pagination-wrap mt-5">
+		<div class="col-md-6 text-center text-md-left mb-4 mb-md-0"></div>
+
+
+
+	</div>
+</section>
+
+<div th:replace="partials/footer"></div>

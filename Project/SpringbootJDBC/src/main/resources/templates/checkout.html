@@ -1,0 +1,48 @@
+
+<div th:replace="partials/headerus"></div>
+   
+<div class="container">
+ <h1>Xác Nhận Đăng Ký</h1>  
+ <tr th:each="ele : ${session.user}">
+       <table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Họ</th>
+							<th>Tên</th>
+							<th>Email</th>
+							<th>Ngày mượn</th>
+						</tr>
+					</thead>
+					<tbody>
+                               <tr th:each="us : ${ele.value}">
+                             <td th:text="${us.firstname}"></td>  
+                             <td th:text="${us.lastname}"></td>
+                             <td th:text="${us.email}"></td>
+                             <td th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"></td>
+                               </tr>
+                               
+						
+					</tbody>
+				</table>
+      <tr th:each="element : ${session.myCartItems}">
+       
+         <table class="table table-active">
+            <tr th:each="anews : ${element.value}">
+               <td><img width="100" height="100" th:src="@{/{url}(url=${anews.product.image})}"/></td> 
+                <td th:text="${anews.product.id}">Some name</td>
+                <td th:text="${anews.product.bookname}">Some name</td>
+                <td th:text="${anews.quantity}">Some name</td>
+               
+               
+            </table>
+            </tr>
+          <div class="check_button" align="center"><a href="/confirm.html">Đăng Ký</a></div>
+          <br>
+
+</div>
+            
+          
+			
+			
+          
+<div th:replace="partials/footer"></div>

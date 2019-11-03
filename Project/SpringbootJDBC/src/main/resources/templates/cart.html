@@ -1,0 +1,47 @@
+
+<div th:replace="partials/headerus"></div>
+   
+<div class="container">
+      
+      
+        <tr th:each="element : ${session.myCartItems}">
+       
+         <table class="table table-active">
+            <tr th:each="anews : ${element.value}">
+               <td><img width="100" height="100" th:src="@{/{url}(url=${anews.product.image})}"/></td> 
+                <td th:text="${anews.product.id}">Some name</td>
+                <td th:text="${anews.product.bookname}">Some name</td>
+                <td th:text="${anews.product.type}">Some name</td>
+                <td th:text="${anews.product.id_author}">Some name</td>
+                <td th:text="${anews.product.id_publisher}">Some name</td>
+                <td th:text="${anews.product.number}"></td>
+               
+                <td class="list_close"><a th:href="@{/remove/{id}(id=${anews.product.id})}">x</a></td>
+            </tr>
+            </table>
+            </tr>
+          
+                                
+         
+   
+      </div>
+      
+                
+                <div class="login_buttons">
+                    <div class="check_button" align="center"><a href="/checkout.html">Đăng ký mượn</a></div>
+                    <div class="clearfix"></div>
+                </div>
+               <br/>
+          
+			
+			
+          
+         
+ 
+   
+ 
+        
+ 
+       
+ 
+    <div th:replace="partials/footer"></div>
