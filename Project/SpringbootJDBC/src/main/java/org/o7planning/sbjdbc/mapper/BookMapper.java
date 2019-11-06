@@ -9,14 +9,14 @@ import org.springframework.jdbc.core.RowMapper;
 
 public class BookMapper implements RowMapper<books> {
 	public static final String BASE_SQL //
-    = "Select ba.id, ba.id_author,  ba.id_publisher,ba.bookname,ba.image,ba.number,ba.type From books ba ";
+    = "Select ba.id, ba.idauthor,  ba.idpublisher,ba.bookname,ba.image,ba.number,ba.type From books ba ";
 	
 
 @Override
 public books mapRow(ResultSet rs, int rowNum) throws SQLException {
 Integer id=rs.getInt("id");
-int id_au=rs.getInt("id_author");
-int id_pub=rs.getInt("id_publisher");
+int id_au=rs.getInt("idauthor");
+int id_pub=rs.getInt("idpublisher");
 String bookname = rs.getString("bookname");
 
 String image = rs.getString("image");

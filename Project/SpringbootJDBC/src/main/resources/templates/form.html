@@ -1,22 +1,15 @@
-<!DOCTYPE html>  
-<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>Edit User</title>  
-    <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>  
-</head>  
-<body>  
+ <div th:replace="partials/headermn"></div> 
 <div class="col-3"></div>  
 <div class="container col-6">  
     <h1>Add Book</h1>  
     <form th:object="${us}" th:action="@{/save}" action="#" method="post">  
         <div>  
                 <label  th:for="id_author">Mã tác giả</label>  
-                <input type="text" th:field="*{id_author}" class="form-control" placeholder="id_author"/>  
+                <input type="text" th:field="*{idauthor}" class="form-control" placeholder="id_author"/>  
             </div> 
             <div>  
                 <label  th:for="id_publisher">Mã nhà xuất bản</label>  
-                <input type="text" th:field="*{id_publisher}" class="form-control" placeholder="id_publisher"/>  
+                <input type="text" th:field="*{idpublisher}" class="form-control" placeholder="id_publisher"/>  
             </div>  
              <div>  
                 <label  th:for="bookname">Tên sách</label>  
@@ -24,19 +17,30 @@
             </div> 
             <div>  
                 <label th:for="type">Loại</label>  
-                <input type="text" th:field="*{type}" class="form-control" placeholder="type"/>  
+               <!--   <input type="text" class="form-control" placeholder="type"/> -->
+                <select   th:field="*{type}" class="selectpicker" data-style="btn-white btn-lg" data-width="100%" data-live-search="true" title="Loại sách" >
+                 
+                  <option value ="Khoa Học - Kỹ Thuật">Khoa học - Kỹ thuật</option>
+                  <option value ="Trinh Thám - Hình Sự">Trinh Thám - Hình Sự</option>
+                  <option value="Lịch Sử - Chính Trị">Lịch sử - Chính trị</option>
+                  <option value="Văn Hóa - Tôn Giáo">Văn hóa - Tôn giáo</option>
+                  <option value="Tâm Lý - Kỹ Năng Sống">Tâm lý- Kỹ năng sống</option>
+                  <option value="Triết Học">Triết học</option>
+                  <option value="Tiểu Thuyết">Tiểu Thuyết</option>
+                  </select> 
             </div> 
             <div>  
                 <label  th:for="number">Số lượng</label>  
                 <input type="text" th:field="*{number}" class="form-control" placeholder="number"/>  
             </div> 
-            <div>  
+           <div>  
                 <label  th:for="image">Hình</label>  
-                <input type="text" th:field="*{image}" class="form-control" placeholder="image"/>  
+                <br>
+                <input type="file" th:field="*{image}"  />  
             </div> 
             <div style="clear: both; display: block; height: 10px"></div>  
             <input type="submit" class="btn btn-success" value="Save"/>  
     </form>  
+
 </div>  
-</body>  
-</html>
+<div th:replace="partials/footer"></div>

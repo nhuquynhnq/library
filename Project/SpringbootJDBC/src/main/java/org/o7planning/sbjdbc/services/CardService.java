@@ -18,5 +18,8 @@ public interface CardService {
     void saveCard(cardbook contact);
 
     void deleteCard(Integer  id);
+    public cardbook findId(Integer id);
+    public cardbook findCard(Integer id);
+    public void updateCard(Integer id,int number);
   
 }

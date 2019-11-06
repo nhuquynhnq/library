@@ -8,9 +8,7 @@
             <form   th:object="${us}" th:action="@{/saveuser}"  action="#" method="post" >
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="text-black"
-
-                  th:for="firstname">Họ </label>
+                  <label class="text-black" th:for="firstname">Họ </label>
                   <input class="form-control" type="text" th:field="*{firstname}"  placeholder="First Name" required>
                 </div>
               </div>
@@ -29,7 +27,7 @@
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="text-black" th:for="password">Password</label>
-                  <input class="form-control" type="text" th:field="*{password}"   placeholder="password"  required>
+                  <input class="form-control" type="password" th:field="*{password}"   placeholder="password"  required>
                 </div>
               </div>
               
@@ -38,11 +36,11 @@
                 <div class="col-md-12">
                   <input type="submit" value="Đăng ký" class="btn px-4 btn-primary text-white" >
                 </div>
-
+<div>Đăng ký thất bại vui lòng chọn email đúng định dạng</div>
               </div>
                <div class="row form-group">
                 <div class="col-md-12">
-                 <div name="kq">Đăng kí thất bại vui lòng chọn email chưa đăng kí và đúng định dạng!</div>
+                 <div name="kq"></div>
                 </div>
 
               </div>
@@ -52,18 +50,19 @@
           </div>
           <div class="col-lg-6">
             <h2 class="mb-4">Đăng nhập </h2>
-            <form th:object="${us}" th:action="@{/loginuser}"  method="post">
+            <form th:object="${uss}" th:action="@{/loginuser}"  method="post">
 
               <div class="row form-group">
                 <div class="col-md-12 mb-3 mb-md-0">
                   <label class="text-black" th:for="email" >Email</label>
-                  <input type="text" th:field="*{lastname}"  placeholder="Email address">
+                  <input class="form-control" type="text" th:field="*{email}"  placeholder="Email address">
                 </div>
               </div>
               <div class="row form-group mb-4">
                 <div class="col-md-12 mb-3 mb-md-0">
-                  <label class="text-black" th:for="email">Mật khẩu</label>
+                  <label class="text-black" th:for="password">Mật khẩu</label>
                   <input type="password" class="form-control" th:field="*{password}"  placeholder="Password">
+                  
                   <a href="resetpassword.html">Quên mật khẩu?</a>
                 </div>
               </div>

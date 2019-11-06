@@ -12,10 +12,15 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 @Repository 
 public interface SachRepository extends CrudRepository<books,Integer>{
-	@Query("Select * from books t Where t.bookname := book")
-	List<books> findBybooknameLike(@Param("book") String book);
+	@Query("SELECT * FROM books  WHERE books.bookname like :bookname")
+	books findBybooknameLike(@Param("bookname") String book);
+	@Query("SELECT * FROM books  WHERE books.type = :type")
+	List<books> findBybooktypeLike(@Param("type") String type);
+	@Query("SELECT * FROM books  WHERE books.bookname like :bookname and books.type=:type")
+	books findbookByNameType(@Param("bookname") String book,@Param("type") String type);
 	Optional<books> findById(Integer q);
 	void deleteById(Integer q);
+	
 	public books findById(int Id);
 	@Modifying
 	@Query("UPDATE books t SET t.numberborrow =:number WHERE  t.id= :Id")

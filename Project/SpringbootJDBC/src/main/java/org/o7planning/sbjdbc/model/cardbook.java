@@ -25,6 +25,12 @@ public cardbook( Integer iduser, Integer idbook, String bookname,String rent_dat
 	this.rent_number = rent_number;
 	this.status = status;
 }
+public cardbook(Integer id) {
+	this.id=id;
+}
+public cardbook() {
+	super();
+}
 public Integer getId() {
 	return id;
 }

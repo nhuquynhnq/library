@@ -11,8 +11,8 @@ public class books implements Serializable{
 	@Id
 	@org.springframework.data.annotation.Id
 	private Integer id;
-	private int id_author;
-	private int id_publisher;
+	private int idauthor;
+	private int idpublisher;
 	private String bookname;
 	private String publish_year;
 	private String description;
@@ -22,12 +22,12 @@ public class books implements Serializable{
 	private String image;
 	private int numberborrow;
 	
-	public books(Integer id, int id_author, int id_publisher, String bookname,  String type, int number,
+	public books(Integer id, int idauthor, int id_publisher, String bookname,  String type, int number,
 			String image) {
 		super();
 		this.id = id;
-		this.id_author = id_author;
-		this.id_publisher = id_publisher;
+		this.idauthor = idauthor;
+		this.idpublisher = id_publisher;
 		this.bookname = bookname;
 		
 		this.type = type;
@@ -36,6 +36,12 @@ public class books implements Serializable{
 	}
 	public books() {
 		super();
+		
+	}
+	public books(String name,String type) {
+      this.bookname = name;
+		
+		this.type = type;
 	}
 	public Integer getId() {
 		return id;
@@ -43,14 +49,19 @@ public class books implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getId_author() {
-		return id_author;
+	public int getIdauthor() {
+		return idauthor;
 	}
 	
-	public int getId_publisher() {
-		return id_publisher;
+	public int getIdpublisher() {
+		return idpublisher;
 	}
-	
+	public void setIdauthor(int id) {
+		this.idauthor = id;
+	}
+	public void setIdpublisher(int id) {
+		this.idpublisher = id;
+	}
 	public String getBookname() {
 		return bookname;
 	}

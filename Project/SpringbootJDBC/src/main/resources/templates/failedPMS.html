@@ -1,0 +1,69 @@
+<div th:replace="partials/head"></div>
+ <div th:replace="partials/site_mobile_menu"></div>
+	<div th:replace="partials/navbarmn"></div>
+ <section class="section-hero overlay inner-page bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1 class="text-white font-weight-bold">Quản Lý Trả Sách</h1>
+            <div class="custom-breadcrumbs">
+              <a href="index.php">Trang chủ</a> <span class="mx-2 slash">/</span>
+              <span class="text-white"><strong>Quản Lý Trả Sách</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+   <div id="TraSach" class="container">
+   
+       <h1 align="center">Tìm Kiếm Phiếu Mượn</h1>
+       <br/>
+       <br/>
+       
+       <input id="PMS" type="text" class="form-control form-control-lg" />
+      <button id="searchPMS" type="button" class="btn btn-primary btn-lg btn-block text-white btn-search"><span>Tìm</span></button>
+   
+   </div>
+   <div class="row mb-5 justify-content-center">
+			<div class="col-md-12 text-center">
+				<h2 class="section-title mb-2">Kết Quả</h2>
+
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Mã phiếu mượn sách</th>
+							<th>Tên Sách</th>
+							<th>Ngày Mượn</th>
+							<th>Số Lượng Mượn</th>
+						</tr>
+						<tr></tr>
+					</thead>
+					<tbody>
+				         
+                        <tr th:each="element : ${session.Pms}">
+                           
+							<td style="color:red" th:text=${element.id}></td>
+							<td style="color:red" th:text=${element.bookname}></td>
+							<td style="color:red" th:text=${element.rent_date}></td>
+							<td style="color:red" th:text=${element.rent_number}></td>
+							
+						
+						  
+						</tr>
+						<tr  th:each="element : ${session.Pms}">
+						
+						<th:block th:if="${element.id!=0}">
+							<td>Đã trả!!!Số lượng ngày mượn vượt quá 20 ngày</td>
+						</th:block>	
+						</tr>
+						
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+   
+   <br/>
+   <br/>
+   <div th:replace="partials/footer"></div>
+   

@@ -33,8 +33,22 @@ public class SachServiceImpl implements SachServices
     }
 
     @Override
-    public List<books> search(String q) {
-        return sachRepository.findBybooknameLike(q);
+    public books searchBook(String book) {
+    	books result = sachRepository.findBybooknameLike(book);
+    	//System.out.print(result.getBookname());
+        return sachRepository.findBybooknameLike(book);
+    }
+    @Override
+    public List<books> searchType(String type) {
+    	
+    	//System.out.print(result.getBookname());
+        return sachRepository.findBybooktypeLike(type);
+    }
+    @Override
+    public books searchNameType(String book,String type) {
+    	books result = sachRepository.findbookByNameType(book, type);
+    	//System.out.print(result.getBookname());
+        return sachRepository.findbookByNameType(book, type);
     }
 
     @Override

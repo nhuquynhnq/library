@@ -39,7 +39,21 @@ public class CardServiceImpl implements CardService{
        public cardbook findByUserId(Integer categoryId,int status) {
     	  return cardRepository.findByIdUser(categoryId,status);
     }
-
+    @Override
+    //  
+       public cardbook findId(Integer categoryId) {
+    	  return cardRepository.findId(categoryId);
+    }
+    @Override
+    //  
+       public cardbook findCard(Integer Id) {
+    	  return cardRepository.findCard(Id);
+    }
+    @Override
+    //  
+       public void updateCard(Integer Id,int number) {
+    	 cardRepository.updateCard(Id, number);
+       }   
 	@Override
  //   @Transactional
     public cardbook findById(Integer categoryId) {

@@ -9,10 +9,13 @@ import org.springframework.stereotype.Repository;
 public interface SachServices {
 	Iterable<books> findAll();
 
-    List<books> search(String q);
+    books searchBook(String book);
+    List<books> searchType(String type);
+    books searchNameType(String book,String type);
+   // books search(String book,String type);
 
     Optional<books> findBookById(Integer id);
-    public books findById(Integer categoryId);
+    public books findById(Integer Id);
 
     void saveBook(books contact);
 

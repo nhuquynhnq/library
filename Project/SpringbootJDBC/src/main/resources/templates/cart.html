@@ -1,47 +1,48 @@
 
-<div th:replace="partials/headerus"></div>
+<div th:replace="partials/head"></div>
+ <div th:replace="partials/site_mobile_menu"></div>
+	<div th:replace="partials/navbarus"></div>
+ <section class="section-hero overlay inner-page bg-image" style="background-image: url('images/hero_1.jpg');" id="home-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1 class="text-white font-weight-bold">Sách Mượn</h1>
+            <div class="custom-breadcrumbs">
+              <a href="index.php">Trang chủ</a> <span class="mx-2 slash">/</span>
+              <span class="text-white"><strong>Sách Mượn</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
    
 <div class="container">
-      
+      <h1>Sách Mượn</h1>
       
         <tr th:each="element : ${session.myCartItems}">
        
          <table class="table table-active">
+           	<tr>
+           	                <th>Hình</th>
+							<th>Id</th>
+							<th>Tên sách</th>
+							<th>Loại</th>
+							<th>Số lượng mượn</th>
+						</tr>
             <tr th:each="anews : ${element.value}">
                <td><img width="100" height="100" th:src="@{/{url}(url=${anews.product.image})}"/></td> 
                 <td th:text="${anews.product.id}">Some name</td>
                 <td th:text="${anews.product.bookname}">Some name</td>
                 <td th:text="${anews.product.type}">Some name</td>
-                <td th:text="${anews.product.id_author}">Some name</td>
-                <td th:text="${anews.product.id_publisher}">Some name</td>
-                <td th:text="${anews.product.number}"></td>
-               
-                <td class="list_close"><a th:href="@{/remove/{id}(id=${anews.product.id})}">x</a></td>
+                 <td th:text="${anews.quantity}">Some name</td>
+                
             </tr>
             </table>
             </tr>
-          
-                                
-         
-   
       </div>
-      
-                
                 <div class="login_buttons">
                     <div class="check_button" align="center"><a href="/checkout.html">Đăng ký mượn</a></div>
                     <div class="clearfix"></div>
                 </div>
                <br/>
-          
-			
-			
-          
-         
- 
-   
- 
-        
- 
-       
- 
     <div th:replace="partials/footer"></div>

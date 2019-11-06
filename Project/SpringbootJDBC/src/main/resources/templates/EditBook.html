@@ -5,12 +5,12 @@
     <form th:object="${us}" th:action="@{save}" action="#" method="post">  
         <input type="hidden" th:field="*{id}">  
         <div>  
-                <label  th:for="id_author">Mã tác giả</label>  
-                <input type="text" th:field="*{id_author}" class="form-control" placeholder="id_publisher"/>  
+                <label  th:for="idauthor">Mã tác giả</label>  
+                <input  type="text" th:name="author" id="text1" th:field="*{idauthor}" th:value="*{idauthor}" class="form-control" placeholder="id_publisher"/>  
             </div> 
             <div>  
-                <label  th:for="id_publisher">Mã nhà xuất bản</label>  
-                <input type="text" th:field="*{id_publisher}" class="form-control" placeholder="id_publisher"/>  
+                <label  th:for="idpublisher">Mã nhà xuất bản</label>  
+                <input type="text"  th:name="publisher" th:field="*{idpublisher}" class="form-control" placeholder="id_publisher"/>  
             </div>  
              <div>  
                 <label  th:for="bookname">Tên sách</label>  

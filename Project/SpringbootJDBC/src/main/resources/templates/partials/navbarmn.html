@@ -6,12 +6,13 @@
 
           <nav class="mx-auto site-navigation">
             <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
-              <li><a th:href="@{/index}" class="nav-link active">Trang chủ</a> </li>
+            
               <li><a href="bookmn.html"> Quản lý sách </a></li>
                 <li >
                 <a href="publishermn.html">Quản lý nhà xuất bản</a>
                   </li>
               <li><a href="authormn.html">Quản lý tác giả</a></li>
+               <li> <div class="shopping-item"><a href="PMS.html">Trả sách</a></div></li>
               
                <table>
               <tr th:each="var : ${session.user}">
